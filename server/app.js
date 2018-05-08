@@ -15,7 +15,7 @@ const cors = require('cors');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect("mongodb://localhost/server", { useMongoClient: true })
+  .connect(process.env.DBURL, { useMongoClient: true })
   .then(() => {
     console.log("Connected to Mongo!");
   })
@@ -78,11 +78,16 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
+const Project = require('./models/Project');
+
 const index = require("./routes/index");
 app.use("/", index);
+
+app.use('/api/project', require('./routes/crud')(Project));
 
 const authRouter = require("./routes/auth");
 app.use("/api/auth", authRouter);
 
 
 module.exports = app;
+

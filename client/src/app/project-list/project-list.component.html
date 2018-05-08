@@ -1,0 +1,12 @@
+<p>LA LISTA DE TELEFONOS EN OFERTA</p>
+
+
+<div>
+  <div class="project" *ngFor="let project of projects">
+    <a [routerLink]="['/project',project._id]">
+      <img [src]="project.image" width=100/>
+    </a>
+    <h3> {{ project.projectName }} </h3>
+    <p> {{ project.user }} </p>
+  </div>
+</div>

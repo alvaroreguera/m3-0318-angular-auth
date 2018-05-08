@@ -9,4 +9,5 @@
 <div *ngIf="sessionService.user">
   <h2>BIENVENIDO SR PATATA</h2>
   <button (click)="sessionService.logout().subscribe()"> Logout </button>
+  <app-project-list></app-project-list>
 </div>

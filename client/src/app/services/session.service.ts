@@ -1,10 +1,10 @@
+
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
-
-const BASEURL = "http://localhost:3000";
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class SessionService {
@@ -28,27 +28,27 @@ export class SessionService {
   }
 
   signup(user) {
-    return this.http.post(`${BASEURL}/api/auth/signup`, user, this.options)
+    return this.http.post(`${environment.BASEURL}/api/auth/signup`, user, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
   login(username, password) {
-    return this.http.post(`${BASEURL}/api/auth/login`, {username,password}, this.options)
+    return this.http.post(`${environment.BASEURL}/api/auth/login`, {username,password}, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
   logout() {
-    return this.http.get(`${BASEURL}/api/auth/logout`,this.options)
+    return this.http.get(`${environment.BASEURL}/api/auth/logout`,this.options)
       .map(() => this.handleUser())
       .catch(this.handleError);
   }
 
   isLoggedIn() {
-    return this.http.get(`${BASEURL}/api/auth/loggedin`, this.options)
+    return this.http.get(`${environment.BASEURL}/api/auth/loggedin`, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);
