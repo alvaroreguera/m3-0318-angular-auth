@@ -1,3 +1,17 @@
-<p>
-  project-detail works!
-</p>
+<h1> Project details </h1>
+<a [routerLink]="['']"> Back to list </a>
+
+<div *ngIf="project">
+  <div class="project-thumbnail">
+    <img height="300" [src]="project.image" />
+  </div>
+
+  <div class="project-info">
+    <h2> {{ project.projectName }}&nbsp;</h2>
+    <h3> {{ project.user }} </h3>
+
+  </div>
+
+  <button (click)="deleteProject()"> Delete </button>
+
+</div>

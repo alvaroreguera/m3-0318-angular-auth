@@ -4,6 +4,7 @@
 <div>
   <div class="project" *ngFor="let project of projects">
     <a [routerLink]="['/project',project._id]">
+      <p>{{project._id}}</p>
       <img [src]="project.image" width=100/>
     </a>
     <h3> {{ project.projectName }} </h3>
