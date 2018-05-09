@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: String,
-  password: String
+  name: String,
+  email: String,
+  balance: Number,
 }, {
   timestamps: {
     createdAt: 'created_at',
