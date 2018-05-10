@@ -7,7 +7,7 @@ import { SessionService } from "../services/session.service";
   styleUrls: ["./login-form.component.css"]
 })
 export class LoginFormComponent implements OnInit {
-  username: string;
+  email: string;
   password: string;
   error: string;
 
@@ -16,13 +16,13 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    console.log(this.username, this.password);
-    this.sessionService.login(this.username, this.password).subscribe();
+    console.log(this.email, this.password);
+    this.sessionService.login(this.email, this.password).subscribe();
   }
 
   signup() {
     const user = {
-      username: this.username,
+      email: this.email,
       password: this.password
     };
     console.log(user);

@@ -3,12 +3,26 @@ const mongoose = require("mongoose");
 const Project = require("../models/Project");
 const projects = [
   {
-    user: "XYX",
-    projectName: "S9 64 GB",
-    description: "aaaa",
+    user: "5af2d179cf19be241cdd590e",
+    projectName: "Prueba",
+    description: "pruebas varias",
     image:
       "http://stg-images.samsung.com/is/image/samsung/p5/es/smartphones/galaxy-s9/gallery/s9_purple.png?$ORIGIN_PNG$",
-    financialNeeds: 800
+    web: "www.marca.com",
+    uses: [{description: "marketing", value: 20,}, {description: "development", value: 80,}],
+    financed: 0,
+    sponsors: 0,
+  },
+  {
+    user: "5af2d179cf19be241cdd590e",
+    projectName: "Prueba2",
+    description: "pruebas varias",
+    image:
+      "http://www.casasparaconstruir.com/projetos/140/01.jpg",
+    web: "www.marca.com",
+    uses: [{description: "marketing", value: 30,}, {description: "development", value: 70,}],
+    financed: 0,
+    sponsors: 0,
   }
   
 ];

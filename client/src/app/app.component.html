@@ -8,6 +8,8 @@
 
 <div *ngIf="sessionService.user">
   <h2>BIENVENIDO SR PATATA</h2>
-  <button (click)="sessionService.logout().subscribe()"> Logout </button>
+  <img src="https://ssli.ebayimg.com/images/g/gwcAAOSws6ha0iT~/s-l640.jpg" alt="" width="100px">
+ 
   <router-outlet></router-outlet>
+  <button (click)="sessionService.logout().subscribe()"> Logout </button>
 </div>

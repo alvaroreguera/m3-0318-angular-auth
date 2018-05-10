@@ -30,6 +30,7 @@ const simpleCrud = Model => {
   // Retrive DETAIL
   router.put("/:id", (req, res, next) => {
     const updates = _.pick(req.body, fields);
+    console.log(req.params.id)
 
     Model.findByIdAndUpdate(req.params.id, updates, { new: true })
       .then(object => res.json(object))

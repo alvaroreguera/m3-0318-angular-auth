@@ -79,11 +79,17 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 app.locals.title = "Express - Generated with IronGenerator";
 
 const Project = require('./models/Project');
+const User = require('./models/User');
+const Transaction = require('./models/Transaction');
 
 const index = require("./routes/index");
 app.use("/", index);
 
 app.use('/api/project', require('./routes/crud')(Project));
+
+app.use('/api/user', require('./routes/crud-user')(User));
+
+app.use('/api/transaction', require('./routes/crud-transaction')(Transaction));
 
 const authRouter = require("./routes/auth");
 app.use("/api/auth", authRouter);

@@ -10,6 +10,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import {routes} from './routes';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService, ProjectService],
+  providers: [SessionService, ProjectService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

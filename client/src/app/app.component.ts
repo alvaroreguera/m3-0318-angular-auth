@@ -12,7 +12,7 @@ export class AppComponent {
     this.sessionService.userEvent.subscribe( user => {
       console.log("USER EVENT");
       if(user){
-        this.title = `HOLA ${user.username}`;
+        this.title = `HOLA ${user.name}`;
       }else{
         this.title = "PLIZ LOGIARSE!";
       }

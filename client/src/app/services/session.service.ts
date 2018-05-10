@@ -5,11 +5,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../../environments/environment';
+import { User } from '../project-interface'
+
 
 @Injectable()
 export class SessionService {
 
-  user:any;
+  user: User;
   userEvent: EventEmitter<any> = new EventEmitter();
   options: any = { withCredentials:true };
 
@@ -21,7 +23,7 @@ export class SessionService {
     return Observable.throw(e.json().message);
   }
 
-  handleUser(user?:object){
+  handleUser(user?:User){
     this.user = user;
     this.userEvent.emit(this.user);
     return this.user;
@@ -34,10 +36,12 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  login(username, password) {
-    return this.http.post(`${environment.BASEURL}/api/auth/login`, {username,password}, this.options)
+  login(email, password) {
+    return this.http.post(`${environment.BASEURL}/api/auth/login`, {email,password}, this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(user))
+      .map(user => {
+        console.log(user)
+        this.handleUser(user)})
       .catch(this.handleError);
   }
 

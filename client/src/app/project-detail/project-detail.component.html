@@ -12,6 +12,10 @@
 
   </div>
 
+  <label> Amount </label>
+  <input type="number" [(ngModel)]="financed" name="financed"/>
+ <button (click)="financeProject(financed)"> Finance </button>
+
   <button (click)="deleteProject()"> Delete </button>
 
 </div>

@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
 import 'rxjs';
+import { User } from '../project-interface'
+import { Project } from '../project-interface'
 
 @Injectable()
 export class ProjectService {
@@ -18,7 +20,7 @@ export class ProjectService {
   }
 
   edit(project) {
-    return this.http.put(`${this.BASE_URL}/api/project/${project.id}`, project)
+    return this.http.put(`${this.BASE_URL}/api/project/${project._id}`, project)
       .map((res) => res.json());
   }
 

@@ -9,13 +9,13 @@ const debug = require("debug")(`${app_name}:${path.basename(__filename).split(".
 
 
 passport.use(
-  new LocalStrategy((username, password, next) => {
-    User.findOne({ username }, (err, user) => {
+  new LocalStrategy((email, password, next) => {
+    User.findOne({ email }, (err, user) => {
       if (err) {
         return next(err);
       }
       if (!user) {
-        return next(null, false, { message: "Incorrect username" });
+        return next(null, false, { message: "Incorrect email" });
       }
       if (!bcrypt.compareSync(password, user.password)) {
         return next(null, false, { message: "Incorrect password" });
