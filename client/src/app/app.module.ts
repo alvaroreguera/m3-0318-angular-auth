@@ -11,6 +11,7 @@ import { ProjectListComponent } from './project-list/project-list.component';
 import {routes} from './routes';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { UserService } from './services/user.service';
+import { TransactionService } from './services/transaction.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { UserService } from './services/user.service';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService, ProjectService, UserService],
+  providers: [SessionService, ProjectService, UserService, TransactionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

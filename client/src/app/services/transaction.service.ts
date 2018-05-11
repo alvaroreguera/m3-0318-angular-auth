@@ -35,5 +35,4 @@ getTransactionsById(option, id){
 }
 
 
-
 }
