@@ -161,7 +161,21 @@ const users = [
     password: bcrypt.hashSync('1234', salt),
     balance: 100,
   },
+  {
+    name: "Gabriel Cebrian",
+    email: "kunry3@hotmail.com",
+    password: bcrypt.hashSync('1234', salt),
+    balance: 100,
+  },
+  {
+    name: "David Molina",
+    email: "javara00@gmail.com",
+    password: bcrypt.hashSync('1234', salt),
+    balance: 100,
+  },
 ];
+
+
 mongoose.connect(process.env.DBURL).then(() => {
   console.log(`Conectado a ${process.env.DBURL}`);
   User.collection.drop();

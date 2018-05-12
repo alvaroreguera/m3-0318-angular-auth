@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const projectSchema = new Schema({
-  author: [{type: Schema.Types.ObjectId, ref:'User'}],
+  author: [String],
   projectName: String,
   description: String,
   image: String,

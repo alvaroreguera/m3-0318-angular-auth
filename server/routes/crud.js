@@ -15,11 +15,18 @@ const simpleCrud = Model => {
   
   // Retrive ALL MY FINANCED PROJECTS
   router.get("/financedProjects", (req, res, next) => {
-    console.log(req)
     Model.find({sponsors:req.user.id})
       .then(objects => res.json(objects))
       .catch(e => next(e));
   });
+
+    // Retrive ALL MY CREATED PROJECTS
+    router.get("/createdProjects", (req, res, next) => {
+      console.log(req)
+      Model.find({author:req.user.id})
+        .then(objects => res.json(objects))
+        .catch(e => next(e));
+    });
 
   // Create
   router.post("/", (req, res, next) => {

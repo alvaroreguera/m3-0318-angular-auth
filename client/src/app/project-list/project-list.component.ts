@@ -16,12 +16,14 @@ export class ProjectListComponent implements OnInit {
   projects:Array<any> = [];
   //projectsFinanced$:Observable<any>;
   projectsFinanced:Array<any> = [];
+  projectsCreated:Array<any> = [];
 
   constructor(private projectService:ProjectService) {
     // this.projects$ = projectService.getList();
     // this.projectsFinanced$ = projectService.getListFinanced();
     this.projectService.getList().subscribe( projects => this.projects = projects);
     this.projectService.getListFinanced().subscribe( projectsFinanced => this.projectsFinanced = projectsFinanced);
+  this.projectService.getListCreated().subscribe( projectsCreated => this.projectsCreated = projectsCreated);
   }
 
   ngOnInit() {

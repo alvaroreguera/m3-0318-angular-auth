@@ -25,6 +25,11 @@ export class ProjectService {
       .map((res) => res.json());
   }
 
+  getListCreated() {
+    return this.http.get(`${this.BASE_URL}/api/project/createdProjects`, this.options)
+      .map((res) => res.json());
+  }
+
   get(id) {
     return this.http.get(`${this.BASE_URL}/api/project/${id}`)
       .map((res) => res.json());
