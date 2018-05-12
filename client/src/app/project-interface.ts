@@ -1,5 +1,5 @@
 export interface Project {
-        author: string,
+        author: Array<string>,
         projectName: string,
         description: string,
         image: string,

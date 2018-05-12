@@ -7,7 +7,16 @@ const simpleCrud = Model => {
 
   // Retrive ALL
   router.get("/", (req, res, next) => {
+    console.log(req.user)
     Model.find()
+    .then(objects => res.json(objects))
+    .catch(e => next(e));
+  });
+  
+  // Retrive ALL MY FINANCED PROJECTS
+  router.get("/financedProjects", (req, res, next) => {
+    console.log(req)
+    Model.find({sponsors:req.user.id})
       .then(objects => res.json(objects))
       .catch(e => next(e));
   });

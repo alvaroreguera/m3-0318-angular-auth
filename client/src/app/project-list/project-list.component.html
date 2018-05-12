@@ -1,4 +1,4 @@
-<p>LA LISTA DE TELEFONOS EN OFERTA</p>
+<p>LA LISTA DE PROYECTOS</p>
 
 
 <div>
@@ -11,3 +11,16 @@
     <p> {{ project.user }} </p>
   </div>
 </div>
+
+<p>LA LISTA DE PROYECTOS FINANCIADOS POR SR PATATA</p>
+
+<div>
+    <div class="project" *ngFor="let p of projectsFinanced">
+      <a [routerLink]="['/p',p._id]">
+        <p>{{p._id}}</p>
+        <img [src]="p.image" width=100/>
+      </a>
+      <h3> {{ p.projectName }} </h3>
+      <p> {{ p.user }} </p>
+    </div>
+  </div>

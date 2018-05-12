@@ -1,18 +1,7 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
 
-    <links>
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <div *ngIf="!sessionService.user">
-                    <app-login-form></app-login-form>
-                  </div>
-            </li>
-            <li class="nav-item">
-                <button class = "nav-link waves-light" (click)="sessionService.logout().subscribe()"> Logout </button>
-            </li>
-        </ul>
-    </links>
-</mdb-navbar>
+<h1>
+  {{title}}
+</h1>
 
 <div *ngIf="!sessionService.user">
   <app-login-form></app-login-form>
@@ -20,6 +9,7 @@
 
 <div *ngIf="sessionService.user">
   <h2>BIENVENIDO SR PATATA</h2>
+  <h3> Su saldo actual son {{balance}} Ewoks</h3>
   <img src="https://ssli.ebayimg.com/images/g/gwcAAOSws6ha0iT~/s-l640.jpg" alt="" width="100px">
  
   <router-outlet></router-outlet>

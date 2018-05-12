@@ -39,9 +39,7 @@ export class SessionService {
   login(email, password) {
     return this.http.post(`${environment.BASEURL}/api/auth/login`, {email,password}, this.options)
       .map(res => res.json())
-      .map(user => {
-        console.log(user)
-        this.handleUser(user)})
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
