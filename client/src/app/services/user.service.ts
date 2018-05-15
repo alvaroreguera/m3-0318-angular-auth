@@ -10,7 +10,7 @@ import { User } from '../project-interface'
 
 @Injectable()
 export class UserService {
-    BASE_URL: string = 'http://localhost:3000';
+    BASE_URL: string = 'http://localhost:8000';
   user: User;
   userEvent: EventEmitter<any> = new EventEmitter();
   options: any = { withCredentials:true };

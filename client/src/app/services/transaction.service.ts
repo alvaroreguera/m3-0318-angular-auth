@@ -7,11 +7,11 @@ import { Project } from '../project-interface';
 import { Observable } from 'rxjs/Rx';
 
 
-const BASEURL = 'http://localhost:3000';
+const BASEURL = 'http://localhost:8000';
 
 @Injectable()
 export class TransactionService {
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'http://localhost:8000';
   options: any = { withCredentials: true };
   constructor(private http: Http) {}
 

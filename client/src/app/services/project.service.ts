@@ -6,7 +6,7 @@ import { Project } from '../project-interface'
 
 @Injectable()
 export class ProjectService {
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'http://localhost:8000';
   // defaultHeaders: Headers = new Headers({ 'Content-Type': 'application/json' });
   // defaultOptions: RequestOptions = new RequestOptions({withCredentials: true });
   // userEvent: EventEmitter<any> = new EventEmitter();
