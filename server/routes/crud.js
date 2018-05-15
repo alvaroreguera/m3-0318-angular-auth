@@ -1,5 +1,6 @@
 const express = require("express");
 const _ = require("lodash");
+const uploadCloud = require("../config/cloudinary")
 
 const simpleCrud = Model => {
   const router = express.Router();
