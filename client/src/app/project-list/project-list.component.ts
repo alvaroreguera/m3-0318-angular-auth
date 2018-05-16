@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import { ProjectService } from '../services/project.service';
 import { UserService } from '../services/user.service';
 import { User } from "../project-interface";
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-project-list',
@@ -18,7 +19,7 @@ export class ProjectListComponent implements OnInit {
   projectsFinanced:Array<any> = [];
   projectsCreated:Array<any> = [];
 
-  constructor(private projectService:ProjectService) {
+  constructor(private projectService:ProjectService, public sessionService:SessionService) {
     // this.projects$ = projectService.getList();
     // this.projectsFinanced$ = projectService.getListFinanced();
     this.projectService.getList().subscribe( projects => this.projects = projects);

@@ -91,14 +91,18 @@ App = {
         balance = result.c[0];
         console.log(balance)
         $('#TTBalance').text(balance);
-        return App.getAllBalances()
+        return App.getAllBalances1()
       }).catch(function(err) {
         console.log(err.message);
       });
     });
   },
 
-  getAllBalances: function() {
+// 10 balance functions. Not able to get all balances with one function via truffle.
+
+//1
+
+  getAllBalances1: function() {
     console.log('Getting ALL balances...');
 
     var tutorialTokenInstance;
@@ -117,14 +121,14 @@ App = {
         return tutorialTokenInstance.balanceOf(account);
       }).then(function(result) {
         balance = result.c[0];
-        console.log(balance)
+        window.parent.postMessage(balance, '*');
         // $('#TTBalance').text(balance);
+        // return App.getAllBalances2()
       }).catch(function(err) {
         console.log(err.message);
       });
     });
-  }
-
+  },
 
 
 };

@@ -5,10 +5,11 @@
   <div class="project-thumbnail">
     <img height="300" [src]="project.image" />
   </div>
-
+  
   <div class="project-info">
     <h2> {{ project.projectName }}&nbsp;</h2>
     <h3> {{ project.user }} </h3>
+    <small class="hidden" id="truffleToIframe">{{project.truffleAccount}}</small>
 
   </div>
 
@@ -20,5 +21,5 @@
 
  
 </div>
-<iframe #checkout src="http://localhost:3000" frameborder="0"></iframe>
+<iframe style="height: 600px;width: 100%" #checkout src="http://localhost:3000" frameborder="0"></iframe>
 <button (click)="sessionService.logout().subscribe()"> Logout </button>

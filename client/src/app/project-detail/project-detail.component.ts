@@ -35,7 +35,9 @@ export class ProjectDetailComponent implements OnInit, AfterViewInit {
         //document.getElementById('checkout').addEventListener('load', this.send) ;
        
         this.bindEvent(window, 'message', function (e) {
-           console.log('hooola' + e.data);
+           //console.log(e.data);
+
+           
       });
       });
     });
@@ -88,6 +90,7 @@ export class ProjectDetailComponent implements OnInit, AfterViewInit {
         element.attachEvent('on' + eventName, eventHandler);
     }
   }
+
 
   ngAfterViewInit () {
     //this.send();

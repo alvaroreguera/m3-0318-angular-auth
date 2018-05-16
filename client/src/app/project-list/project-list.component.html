@@ -1,43 +1,102 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img class="logo" src="http://res.cloudinary.com/dhyvlahgj/image/upload/v1526495923/Screen_Shot_2018-05-16_at_20.37.51.png"
+      alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>
+    <button class="out" (click)="sessionService.logout().subscribe()"> Logout </button>
+    <img class="logo-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+  </div>
+</nav>
 
 
-<p>LA LISTA DE PROYECTOS</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="container">
+        <div class="row">
+          <p>LA LISTA DE PROYECTOS</p>
+          <div class="project" *ngFor="let project of projects">
+            <div class="col-">
+              <div class="card cardTop">
+                <a [routerLink]="['/project',project._id]">
+                  <img class="card-img-top" [src]="project.image" height="400" />
+                </a>
+                <div class="card-body">
+                  <p class="card-text">{{ project.projectName }}</p>
+                  <h5 class="card-text">{{offerName}}</h5>
+                  <h6 class="card-text">
+                    {{ project.description }}
+                  </h6>
+                  <li *ngFor="let p of project.author">
+                      {{ p.name }}
+                  </li>
+                  
+                  <div style="font-family: domainedisp-bold">
+                    <a style="color: black" href="/booking/{{id}}/book">Reservar oferta</a> –––
+                    <a style="color: black" href="/offer/show/{{id}}">Explorar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
-<div>
-  <div class="project" *ngFor="let project of projects">
-    <a [routerLink]="['/project',project._id]">
-      <p>{{project._id}}</p>
-      <img [src]="project.image" width=100/>
-    </a>
-    <h3> {{ project.projectName }} </h3>
-    <p> {{ project.user }} </p>
+      <!-- <p>LA LISTA DE PROYECTOS</p>
+      <div class="project" *ngFor="let project of projects">
+        <a [routerLink]="['/project',project._id]">
+          <p>{{project._id}}</p>
+          <img [src]="project.image" width=100/>
+        </a>
+        <h3> {{ project.projectName }} </h3>
+        <p> {{ project.author }} </p>
+      </div> -->
+    </div>
+    <div class="col">
+      <p>LA LISTA DE PROYECTOS FINANCIADOS POR SR PATATA</p>
+
+      <div>
+        <div class="project" *ngFor="let p of projectsFinanced">
+          <a [routerLink]="['/p',p._id]">
+            <p>{{p._id}}</p>
+            <img [src]="p.image" width=100/>
+          </a>
+          <h3> {{ p.projectName }} </h3>
+          <p> {{ p.user }} </p>
+        </div>
+      </div>
+
+      <p>LA LISTA DE PROYECTOS CREADOS POR SR PATATA</p>
+
+      <div>
+        <div class="project" *ngFor="let p of projectsCreated">
+          <a [routerLink]="['/p',p._id]">
+            <p>{{p._id}}</p>
+            <img [src]="p.image" width=100/>
+          </a>
+          <h3> {{ p.projectName }} </h3>
+          <p> {{ p.user }} </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<p>LA LISTA DE PROYECTOS FINANCIADOS POR SR PATATA</p>
-
-<div>
-    <div class="project" *ngFor="let p of projectsFinanced">
-      <a [routerLink]="['/p',p._id]">
-        <p>{{p._id}}</p>
-        <img [src]="p.image" width=100/>
-      </a>
-      <h3> {{ p.projectName }} </h3>
-      <p> {{ p.user }} </p>
-    </div>
-  </div>
-
-  <p>LA LISTA DE PROYECTOS CREADOS POR SR PATATA</p>
-
-<div>
-    <div class="project" *ngFor="let p of projectsCreated">
-      <a [routerLink]="['/p',p._id]">
-        <p>{{p._id}}</p>
-        <img [src]="p.image" width=100/>
-      </a>
-      <h3> {{ p.projectName }} </h3>
-      <p> {{ p.user }} </p>
-    </div>
-  </div>
-
-  <button (click)="sessionService.logout().subscribe()"> Logout </button>

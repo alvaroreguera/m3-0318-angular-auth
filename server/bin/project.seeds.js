@@ -53,7 +53,7 @@ const projects = [
   {
     author: ["5af2d179cf19be241cdd590e", "5af6e26c2c12c850a1376040"],
     projectName: "Wadaloop",
-    truffleAccount: "0x8e991edC818A927e76B49aE51500B080477Ef2F5",
+    truffleAccount: "0xD50B5e6F0ce220C284cDBf140328ca19aDc5d8dD",
     description: "Marketplace para compra venta de artículos de segunda mano",
     image:
       "http://res.cloudinary.com/dhyvlahgj/image/upload/v1526137282/Screen_Shot_2018-05-11_at_12.31.49.png",

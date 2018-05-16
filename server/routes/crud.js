@@ -10,6 +10,7 @@ const simpleCrud = Model => {
   router.get("/", (req, res, next) => {
     console.log(req.user)
     Model.find()
+    .populate("author")
     .then(objects => res.json(objects))
     .catch(e => next(e));
   });
