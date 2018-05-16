@@ -18,6 +18,7 @@
 
   <button (click)="deleteProject()"> Delete </button> -->
 
-
-  <iframe src="http://localhost:3000" frameborder="0"></iframe>
+ 
 </div>
+<iframe #checkout src="http://localhost:3000" frameborder="0"></iframe>
+<button (click)="sessionService.logout().subscribe()"> Logout </button>

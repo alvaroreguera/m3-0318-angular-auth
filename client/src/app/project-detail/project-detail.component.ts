@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ViewChild, ElementRef, OnInit, Renderer2, AfterViewInit } from "@angular/core";
 import { ProjectService } from "../services/project.service";
 import { UserService } from "../services/user.service";
 import { TransactionService } from "../services/transaction.service";
@@ -12,9 +12,9 @@ import { Project } from "../project-interface";
   templateUrl: "./project-detail.component.html",
   styleUrls: ["./project-detail.component.css"]
 })
-export class ProjectDetailComponent implements OnInit {
+export class ProjectDetailComponent implements OnInit, AfterViewInit {
   project: any;
-
+  @ViewChild('checkout') iframe: ElementRef;
   user: User;
 
   constructor(
@@ -23,18 +23,28 @@ export class ProjectDetailComponent implements OnInit {
     public sessionService: SessionService,
     private projectService: ProjectService,
     private userService: UserService,
-    private transactionService: TransactionService
+    private transactionService: TransactionService, 
+    private rd: Renderer2
   ) {
     route.params.subscribe(params => {
       projectService.get(params.id).subscribe(project => {
-        console.log(project);
         this.project = project;
+
+        // this.send();
+        
+        //document.getElementById('checkout').addEventListener('load', this.send) ;
+       
+        this.bindEvent(window, 'message', function (e) {
+           console.log('hooola' + e.data);
+      });
       });
     });
   }
 
   ngOnInit() {
     this.user = this.sessionService.user;
+    //setTimeout(this.send, 5000);
+    
   }
 
   checkBalance(amount) {
@@ -70,4 +80,26 @@ export class ProjectDetailComponent implements OnInit {
       this.router.navigate(["/"]);
     });
   }
+
+  bindEvent(element, eventName, eventHandler) {
+    if (element.addEventListener){
+        element.addEventListener(eventName, eventHandler, false);
+    } else if (element.attachEvent) {
+        element.attachEvent('on' + eventName, eventHandler);
+    }
+  }
+
+  ngAfterViewInit () {
+    //this.send();
+  }
+
+  send(){
+    this.iframe.nativeElement.contentWindow.postMessage("holaSusana", '*');
+    // console.log("TTTEEST")
+    // console.log(this.iframe);
+    //this.rd.selectRootElement(this.iframe).postMessage("holaSusana", '*')
+  }
+  
+
+
 }

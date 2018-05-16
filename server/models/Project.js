@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const projectSchema = new Schema({
   author: [String],
   projectName: String,
+  truffleAccount: String,
   description: String,
   image: String,
   web: String,

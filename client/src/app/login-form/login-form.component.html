@@ -1,15 +1,24 @@
-<h1> Authentication Sample </h1>
-<form>
-  <h2> Login or Signup </h2>
-  <label> Email </label>
-  <input type="text" [(ngModel)]="email" name="email"/>
-  <br>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="password" name="password"/>
-
-  <div style="padding-top:30px">
-    <button (click)="login()"> login </button>
-    <button (click)="signup()"> signup </button>
+<div class="loginWeb">
+  <div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin">
+            <span id="reauth-email" class="reauth-email"></span>
+            <input class="form-control" type="text" [(ngModel)]="email" name="email"/>
+            <input class="form-control" type="password" [(ngModel)]="password" name="password"/>
+            <div id="remember" class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+              <button class="btn btn-lg btn-primary btn-block btn-signin" (click)="login()"> happy coding </button>
+          </form>
+          <a href="#" class="forgot-password">
+              Forgot the password?
+          </a>
+          <p class="error"> {{ error }} </p>
+        
+    </div>  
   </div>
-</form>
-<p class="error"> {{ error }} </p>
+  </div>

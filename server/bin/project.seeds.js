@@ -40,6 +40,7 @@ const projects = [
   {
     author: ["5af2d179cf19be241cdd590e", "5af6e26c2c12c850a1376040"],
     projectName: "Fiestit",
+    truffleAccount: "0xa7d33A66180656EfB884570549b16b2E074D7a5B",
     description: "Tu mejor organizador de fiestas",
     image:
       "http://res.cloudinary.com/dhyvlahgj/image/upload/v1526137285/Screen_Shot_2018-05-11_at_12.30.57.png",
@@ -52,6 +53,7 @@ const projects = [
   {
     author: ["5af2d179cf19be241cdd590e", "5af6e26c2c12c850a1376040"],
     projectName: "Wadaloop",
+    truffleAccount: "0x8e991edC818A927e76B49aE51500B080477Ef2F5",
     description: "Marketplace para compra venta de artículos de segunda mano",
     image:
       "http://res.cloudinary.com/dhyvlahgj/image/upload/v1526137282/Screen_Shot_2018-05-11_at_12.31.49.png",
@@ -64,6 +66,7 @@ const projects = [
   {
     author: ["5af2d179cf19be241cdd590e", "5af6e26c2c12c850a1376040"],
     projectName: "Pasión entre algodones",
+    truffleAccount: "0x7B77eb6bBD5a9f2adF428526f1ee053048Ce9fF4",
     description: "Una tienda online de camisetas que inmortalizan las mejores telenovelas de todos los tiempos",
     image:
       "http://res.cloudinary.com/dhyvlahgj/image/upload/v1526137284/Screen_Shot_2018-05-11_at_12.32.54.png",

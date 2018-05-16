@@ -81,25 +81,69 @@ App = {
       }
 
       var account = accounts[0];
+      window.parent.postMessage(account, '*');
+  
 
       App.contracts.TutorialToken.deployed().then(function(instance) {
         tutorialTokenInstance = instance;
-
         return tutorialTokenInstance.balanceOf(account);
       }).then(function(result) {
         balance = result.c[0];
-
+        console.log(balance)
         $('#TTBalance').text(balance);
+        return App.getAllBalances()
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  getAllBalances: function() {
+    console.log('Getting ALL balances...');
+
+    var tutorialTokenInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      var account = "0xD50B5e6F0ce220C284cDBf140328ca19aDc5d8dD";
+      window.parent.postMessage(account, '*');
+  
+
+      App.contracts.TutorialToken.deployed().then(function(instance) {
+        tutorialTokenInstance = instance;
+        return tutorialTokenInstance.balanceOf(account);
+      }).then(function(result) {
+        balance = result.c[0];
+        console.log(balance)
+        // $('#TTBalance').text(balance);
       }).catch(function(err) {
         console.log(err.message);
       });
     });
   }
 
+
+
 };
+
+
+function bindEvent(element, eventName, eventHandler) {
+  if (element.addEventListener) {
+      element.addEventListener(eventName, eventHandler, false);
+  } else if (element.attachEvent) {
+      element.attachEvent('on' + eventName, eventHandler);
+  }
+}
 
 $(function() {
   $(window).load(function() {
     App.init();
+    bindEvent(window, 'message', function (pepe) {
+      //results.innerHTML = e.data;
+      //console.log(pepe.data);
+  });
   });
 });
