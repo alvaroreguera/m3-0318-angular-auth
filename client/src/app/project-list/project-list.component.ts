@@ -27,7 +27,20 @@ export class ProjectListComponent implements OnInit {
   this.projectService.getListCreated().subscribe( projectsCreated => this.projectsCreated = projectsCreated);
   }
 
+  
+
+
+  bindEvent(element, eventName, eventHandler) {
+    if (element.addEventListener){
+        element.addEventListener(eventName, eventHandler, false);
+    } else if (element.attachEvent) {
+        element.attachEvent('on' + eventName, eventHandler);
+    }
+  }
+
   ngOnInit() {
   }
+
+  
 
 }

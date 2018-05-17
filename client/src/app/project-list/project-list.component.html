@@ -21,6 +21,7 @@
         <a class="nav-link" href="#">Pricing</a>
       </li>
     </ul>
+    <h6>{{sessionService.user.name}}</h6>
     <button class="out" (click)="sessionService.logout().subscribe()"> Logout </button>
     <img class="logo-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
   </div>
@@ -61,15 +62,6 @@
       </div>
 
 
-      <!-- <p>LA LISTA DE PROYECTOS</p>
-      <div class="project" *ngFor="let project of projects">
-        <a [routerLink]="['/project',project._id]">
-          <p>{{project._id}}</p>
-          <img [src]="project.image" width=100/>
-        </a>
-        <h3> {{ project.projectName }} </h3>
-        <p> {{ project.author }} </p>
-      </div> -->
     </div>
     <div class="col">
       <p>LA LISTA DE PROYECTOS FINANCIADOS POR SR PATATA</p>
@@ -100,3 +92,8 @@
     </div>
   </div>
 </div>
+
+
+<div class="col-md-6">
+    <iframe style="height: 600px" #iframe src="http://localhost:3000" frameborder="0" id="myIframe"></iframe>
+  </div>

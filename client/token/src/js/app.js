@@ -1,6 +1,17 @@
 App = {
   web3Provider: null,
   contracts: {},
+  acc:['0x69F8a27E4E172D330711f982Ac6D3566169cF40c', 
+  '0x13325b3F6132963BD1bE7a3990EF45136dDc3231',
+  '0xD50B5e6F0ce220C284cDBf140328ca19aDc5d8dD',
+  '0xc99fa56aFe032CC26781E7fbe874C0a8e8C0E228',
+  '0x97fDA0661Ca31207e7ba04177C013266868e1986',
+  '0x4C53ad4790daC94d22DC6C374aa41bc270676DC8',
+  '0xa7d33A66180656EfB884570549b16b2E074D7a5B',
+  '0x8e991edC818A927e76B49aE51500B080477Ef2F5',
+  '0x7B77eb6bBD5a9f2adF428526f1ee053048Ce9fF4',
+  '0xa1bebA2E636D4696Cf1e8715B0dfaCB22b3f5848'
+],
 
   init: function() {
     return App.initWeb3();
@@ -81,7 +92,7 @@ App = {
       }
 
       var account = accounts[0];
-      window.parent.postMessage(account, '*');
+      //window.parent.postMessage(account, '*');
   
 
       App.contracts.TutorialToken.deployed().then(function(instance) {
@@ -91,7 +102,7 @@ App = {
         balance = result.c[0];
         console.log(balance)
         $('#TTBalance').text(balance);
-        return App.getAllBalances1()
+        const count = App.acc.map(e => App.getAllBalances1(e));
       }).catch(function(err) {
         console.log(err.message);
       });
@@ -102,7 +113,9 @@ App = {
 
 //1
 
-  getAllBalances1: function() {
+
+
+  getAllBalances1: function(acc) {
     console.log('Getting ALL balances...');
 
     var tutorialTokenInstance;
@@ -112,8 +125,8 @@ App = {
         console.log(error);
       }
 
-      var account = "0xD50B5e6F0ce220C284cDBf140328ca19aDc5d8dD";
-      window.parent.postMessage(account, '*');
+      var account = acc;
+      // window.parent.postMessage(account, '*');
   
 
       App.contracts.TutorialToken.deployed().then(function(instance) {
@@ -121,7 +134,11 @@ App = {
         return tutorialTokenInstance.balanceOf(account);
       }).then(function(result) {
         balance = result.c[0];
-        window.parent.postMessage(balance, '*');
+        const pepe = {
+          account: account,
+          balance: balance
+        }
+        window.parent.postMessage(pepe, '*');
         // $('#TTBalance').text(balance);
         // return App.getAllBalances2()
       }).catch(function(err) {

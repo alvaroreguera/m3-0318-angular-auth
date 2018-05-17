@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { SessionService } from "../services/session.service";
 import { User } from "../project-interface";
 import { Project } from "../project-interface";
+import { cheerio } from "cheerio";
 
 @Component({
   selector: "app-project-detail",
@@ -14,7 +15,8 @@ import { Project } from "../project-interface";
 })
 export class ProjectDetailComponent implements OnInit, AfterViewInit {
   project: any;
-  @ViewChild('checkout') iframe: ElementRef;
+  // @ViewChild('checkout') iframe: ElementRef;
+  @ViewChild('iframe') iframe: ElementRef;
   user: User;
 
   constructor(
@@ -35,7 +37,7 @@ export class ProjectDetailComponent implements OnInit, AfterViewInit {
         //document.getElementById('checkout').addEventListener('load', this.send) ;
        
         this.bindEvent(window, 'message', function (e) {
-           //console.log(e.data);
+           console.log(e.data);
 
            
       });
@@ -44,8 +46,20 @@ export class ProjectDetailComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+  
     this.user = this.sessionService.user;
-    //setTimeout(this.send, 5000);
+    
+    document.getElementById("myIframe").addEventListener('load', () => {
+      let doc =  this.iframe.nativeElement.contentWindow;
+      //doc.postMessage({account: this.project.truffleAccount}, "*")
+      //doc.postMessage(JSON.stringify({account: this.project.truffleAccount}),"*")
+      doc.postMessage(JSON.stringify({"target":"inpage","data":{"name":"publicConfig", "data":{"networkVersion":"3"},"account": this.project.truffleAccount}}), '*');
+    })
+
+  }
+
+  ngAfterViewInit() {
+    
     
   }
 
@@ -89,11 +103,6 @@ export class ProjectDetailComponent implements OnInit, AfterViewInit {
     } else if (element.attachEvent) {
         element.attachEvent('on' + eventName, eventHandler);
     }
-  }
-
-
-  ngAfterViewInit () {
-    //this.send();
   }
 
   send(){

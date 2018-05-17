@@ -1,6 +1,7 @@
 .navbar {
     background: #33373a !important;
     color: #c8c8c8 !important;
+    font-family: 'Roboto', sans-serif;
 }
 
 .logo {
@@ -14,7 +15,8 @@ width: 130px;
 .out {
     width: 80px;
     height: 30px;
-    margin-right: 10px; 
+    margin-right: 10px;
+    margin-left: 10px;  
 }
 
 .cardTop {

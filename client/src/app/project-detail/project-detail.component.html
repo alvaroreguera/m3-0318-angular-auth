@@ -1,25 +1,26 @@
-<h1> Project details </h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1> Project details </h1>
+      <div *ngIf="project">
+        <div class="project-thumbnail">
+          <img height="300" [src]="project.image" />
+        </div>
+        <div class="project-info">
+          <h2> {{ project.projectName }}&nbsp;</h2>
+          <h3> {{ project.user }} </h3>
+          <small class="hidden" id="truffleToIframe">{{project.truffleAccount}}</small>
+        </div>
+      </div>
+    </div>
+      <div class="col-md-6">
+        <iframe style="height: 600px" #iframe src="http://localhost:3000" frameborder="0" id="myIframe"></iframe>
+      </div>
+   
+  </div>
+
+</div>
+
 <a [routerLink]="['']"> Back to list </a>
 
-<div *ngIf="project">
-  <div class="project-thumbnail">
-    <img height="300" [src]="project.image" />
-  </div>
-  
-  <div class="project-info">
-    <h2> {{ project.projectName }}&nbsp;</h2>
-    <h3> {{ project.user }} </h3>
-    <small class="hidden" id="truffleToIframe">{{project.truffleAccount}}</small>
-
-  </div>
-
-  <!-- <label> Amount </label>
-  <input type="number" [(ngModel)]="financed" name="financed"/>
- <button (click)="financeProject(financed)"> Finance </button>
-
-  <button (click)="deleteProject()"> Delete </button> -->
-
- 
-</div>
-<iframe style="height: 600px;width: 100%" #checkout src="http://localhost:3000" frameborder="0"></iframe>
 <button (click)="sessionService.logout().subscribe()"> Logout </button>
