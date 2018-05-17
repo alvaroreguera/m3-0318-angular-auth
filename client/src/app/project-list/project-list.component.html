@@ -10,15 +10,15 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home
+        <a class="nav-link" href="#">
           <span class="sr-only">(current)</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#"></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="#"></a>
       </li>
     </ul>
     <h6>{{sessionService.user.name}}</h6>
@@ -26,7 +26,9 @@
     <img class="logo-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
   </div>
 </nav>
-<div class="webFund"><h4>IronFunding</h4></div>
+<div class="webFund">
+  <h4>IronFunding</h4>
+</div>
 <div class="container">
   <div class="row">
     <div class="col">
@@ -45,9 +47,9 @@
                   </h6>
                   <p class="card-text"> Este proyecto ha recaudado hasta el momento {{project.financed}} IronTokens </p>
                   <li *ngFor="let p of project.author">
-                      {{ p.name }}
+                    {{ p.name }}
                   </li>
-                  
+
 
                 </div>
               </div>
@@ -60,37 +62,30 @@
     </div>
     <div class="col">
       <div class="dere">
-<div class="balance">
-    <div class="col-md-6">
-        <iframe #iframe src="http://localhost:3000" frameborder="0" id="myIframe"></iframe>
-      </div>
-</div> 
-
-      <div>
-          <p>LA LISTA DE PROYECTOS FINANCIADOS POR SR PATATA</p>
-        <div class="project" *ngFor="let p of projectsFinanced">
-          <a [routerLink]="['/p',p._id]">
-            <p>{{p._id}}</p>
-            <img [src]="p.image" width=100/>
-          </a>
-          <h3> {{ p.projectName }} </h3>
-          <p> {{ p.user }} </p>
+        <div class="balance">
+          <div class="col-md-6 dereCol">
+            <iframe #iframe src="http://localhost:3000" frameborder="0" id="myIframe"></iframe>
+          </div>
         </div>
-      </div>    
-
-      <div>
-          <p>LA LISTA DE PROYECTOS CREADOS POR SR PATATA</p>
-        <div class="project" *ngFor="let p of projectsCreated">
-          <a [routerLink]="['/p',p._id]">
-            <p>{{p._id}}</p>
-            <img [src]="p.image" width=100/>
-          </a>
-          <h3> {{ p.projectName }} </h3>
-          <p> {{ p.user }} </p>
+        <div>
+          <p>Proyectos <u>financiados</u> por {{sessionService.user.name}}:</p>
+          <div class="project-p" *ngFor="let p of projectsFinanced">
+            <a class="in" [routerLink]="['/p',p._id]">
+              <img [src]="p.image" width=90/>
+            </a>
+            <h4 class="in"> {{ p.projectName }} </h4>
+          </div>
+        </div>
+        <div>
+          <p>Proyectos <u>creados</u> por {{sessionService.user.name}}:</p>
+          <div class="project-p" *ngFor="let p of projectsCreated">
+            <a class="in"[routerLink]="['/p',p._id]">
+              <img [src]="p.image" width=90/>
+            </a>
+            <h4 class="in"> {{ p.projectName }} </h4>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-

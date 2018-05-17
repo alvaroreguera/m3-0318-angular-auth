@@ -116,5 +116,13 @@ width: 130px;
     font-size: 10px;
   }
 
+  .trick {
+      height: 20px;
+  }
+
+  .nav-item {
+    color: #c8c8c8 !important;
+  }
+
 
 

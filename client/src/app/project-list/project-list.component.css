@@ -1,6 +1,14 @@
 #myIframe {
-  height: 430px;
+  height: 420px;
   width: 500px;
+}
+
+.project-p {
+  display: inline-block;
+}
+
+.in {
+  display: inline;
 }
 
 

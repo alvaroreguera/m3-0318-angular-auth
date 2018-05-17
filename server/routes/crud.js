@@ -41,6 +41,7 @@ const simpleCrud = Model => {
   // Retrive DETAIL
   router.get("/:id", (req, res, next) => {
     Model.findById(req.params.id)
+      .populate('author')
       .then(object => res.json(object))
       .catch(e => next(e));
   });

@@ -10,15 +10,13 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-            <span class="sr-only">(current)</span>
-          </a>
+          <a  class="nav-link" [routerLink]="['']"> Back to list </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#"></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#"></a>
         </li>
       </ul>
       <h6>{{sessionService.user.name}}</h6>
@@ -38,7 +36,7 @@
       <div *ngIf="project">
        
         <div class="card-body">
-            <h5 class="card-text"> {{ project.projectName }}</h5>
+            <h2 class="card-text"> {{ project.projectName }}</h2>
             <div class="project-thumbnail">
                 <img height="300" [src]="project.image" />
               </div>
@@ -48,7 +46,9 @@
             <li *ngFor="let p of project.author">
                 {{ p.name }}
             </li>
-            <small class="hidden" id="truffleToIframe">{{project.truffleAccount}}</small>
+            <div class="trick">
+            </div>
+            <small class="hidden" id="truffleToIframe">Si deseas hacer una aportación, copia el número de cuenta en tu wallet y go! <u>{{project.truffleAccount}}</u></small>
           </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
 </div>
 
 <div class="back">
-    <a  [routerLink]="['']"> Back to list </a>
+    
 </div>
 
 
