@@ -26,14 +26,12 @@
     <img class="logo-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
   </div>
 </nav>
-
-
+<div class="webFund"><h4>IronFunding</h4></div>
 <div class="container">
   <div class="row">
     <div class="col">
       <div class="container">
         <div class="row">
-          <p>LA LISTA DE PROYECTOS</p>
           <div class="project" *ngFor="let project of projects">
             <div class="col-">
               <div class="card cardTop">
@@ -41,19 +39,16 @@
                   <img class="card-img-top" [src]="project.image" height="400" />
                 </a>
                 <div class="card-body">
-                  <p class="card-text">{{ project.projectName }}</p>
-                  <h5 class="card-text">{{offerName}}</h5>
+                  <h5 class="card-text"> {{ project.projectName }}</h5>
                   <h6 class="card-text">
                     {{ project.description }}
                   </h6>
+                  <p class="card-text"> Este proyecto ha recaudado hasta el momento {{project.financed}} IronTokens </p>
                   <li *ngFor="let p of project.author">
                       {{ p.name }}
                   </li>
                   
-                  <div style="font-family: domainedisp-bold">
-                    <a style="color: black" href="/booking/{{id}}/book">Reservar oferta</a> –––
-                    <a style="color: black" href="/offer/show/{{id}}">Explorar</a>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -64,9 +59,15 @@
 
     </div>
     <div class="col">
-      <p>LA LISTA DE PROYECTOS FINANCIADOS POR SR PATATA</p>
+      <div class="dere">
+<div class="balance">
+    <div class="col-md-6">
+        <iframe #iframe src="http://localhost:3000" frameborder="0" id="myIframe"></iframe>
+      </div>
+</div> 
 
       <div>
+          <p>LA LISTA DE PROYECTOS FINANCIADOS POR SR PATATA</p>
         <div class="project" *ngFor="let p of projectsFinanced">
           <a [routerLink]="['/p',p._id]">
             <p>{{p._id}}</p>
@@ -75,11 +76,10 @@
           <h3> {{ p.projectName }} </h3>
           <p> {{ p.user }} </p>
         </div>
-      </div>
-
-      <p>LA LISTA DE PROYECTOS CREADOS POR SR PATATA</p>
+      </div>    
 
       <div>
+          <p>LA LISTA DE PROYECTOS CREADOS POR SR PATATA</p>
         <div class="project" *ngFor="let p of projectsCreated">
           <a [routerLink]="['/p',p._id]">
             <p>{{p._id}}</p>
@@ -92,8 +92,5 @@
     </div>
   </div>
 </div>
+</div>
 
-
-<div class="col-md-6">
-    <iframe style="height: 600px" #iframe src="http://localhost:3000" frameborder="0" id="myIframe"></iframe>
-  </div>

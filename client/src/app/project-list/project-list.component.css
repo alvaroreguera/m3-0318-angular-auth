@@ -1,7 +1,16 @@
+#myIframe {
+  height: 430px;
+  width: 500px;
+}
+
+
 .navbar {
     background: #33373a !important;
     color: #c8c8c8 !important;
     font-family: 'Roboto', sans-serif;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
 
 .logo {
@@ -41,7 +50,6 @@ width: 130px;
   }
   
   
-  
   .card {
     /* position: relative; */
     display: -ms-flexbox;
@@ -54,7 +62,10 @@ width: 130px;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 auto;
+    padding-top: 70px;
   }
+
+
   
   .cardTop img {
     height: 170px;
@@ -76,6 +87,30 @@ width: 130px;
   .clear {
     height: 250px;
     width: 100%;
+  }
+
+  .col {
+    position: relative;
+    width: 50%;
+  }
+
+  .dere {
+    position: fixed;
+    width: 40%;
+    left: 55%;
+    top: 100px;
+  }
+
+  .webFund {
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    background-color: #f3f3f3;
+    top: 60px;
+    z-index: 100;
+    font-family: 'Roboto', sans-serif; 
+    color: black;
+    text-align: center
   }
   
 

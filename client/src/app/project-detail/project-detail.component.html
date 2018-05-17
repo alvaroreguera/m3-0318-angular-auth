@@ -1,26 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="http://res.cloudinary.com/dhyvlahgj/image/upload/v1526495923/Screen_Shot_2018-05-16_at_20.37.51.png"
+        alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+      <h6>{{sessionService.user.name}}</h6>
+      <button class="out" (click)="sessionService.logout().subscribe()"> Logout </button>
+      <img class="logo-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    </div>
+  </nav>
+  <div class="webFund">
+<div class="title">
+    <h4>IronFunding</h4>
+</div>
+    </div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h1> Project details </h1>
       <div *ngIf="project">
-        <div class="project-thumbnail">
-          <img height="300" [src]="project.image" />
-        </div>
-        <div class="project-info">
-          <h2> {{ project.projectName }}&nbsp;</h2>
-          <h3> {{ project.user }} </h3>
-          <small class="hidden" id="truffleToIframe">{{project.truffleAccount}}</small>
-        </div>
+       
+        <div class="card-body">
+            <h5 class="card-text"> {{ project.projectName }}</h5>
+            <div class="project-thumbnail">
+                <img height="300" [src]="project.image" />
+              </div>
+            <h6 class="card-text">
+              {{ project.description }}
+            </h6>
+            <li *ngFor="let p of project.author">
+                {{ p.name }}
+            </li>
+            <small class="hidden" id="truffleToIframe">{{project.truffleAccount}}</small>
+          </div>
       </div>
     </div>
       <div class="col-md-6">
-        <iframe style="height: 600px" #iframe src="http://localhost:3000" frameborder="0" id="myIframe"></iframe>
+        <iframe  #iframe src="http://localhost:3000" frameborder="0" id="myIframe"></iframe>
       </div>
    
   </div>
 
 </div>
 
-<a [routerLink]="['']"> Back to list </a>
+<div class="back">
+    <a  [routerLink]="['']"> Back to list </a>
+</div>
 
-<button (click)="sessionService.logout().subscribe()"> Logout </button>
+

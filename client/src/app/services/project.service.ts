@@ -9,11 +9,15 @@ export class ProjectService {
   BASE_URL: string = 'http://localhost:8000';
   // defaultHeaders: Headers = new Headers({ 'Content-Type': 'application/json' });
   // defaultOptions: RequestOptions = new RequestOptions({withCredentials: true });
-  // userEvent: EventEmitter<any> = new EventEmitter();
+  balanceEvent: EventEmitter<any> = new EventEmitter();
   options: Object = { withCredentials: true };
+  accounts: Array<any>;
+  projects: Array<any>;
 
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+    this.getList().subscribe(p => this.projects = p);
+  }
 
   getList() {
     return this.http.get(`${this.BASE_URL}/api/project`)
@@ -23,6 +27,20 @@ export class ProjectService {
   getListFinanced() {
     return this.http.get(`${this.BASE_URL}/api/project/financedProjects`, this.options)
       .map((res) => res.json());
+  }
+
+  getBalance(e) {
+    this.accounts = e;
+    this.projects.forEach(p => {
+      this.accounts.forEach(a => {
+        if(p.truffleAccount == a.account) {
+          p.financed = a.balance;
+        }
+      })
+    })
+    console.log(this.projects)
+    this.balanceEvent.emit(this.projects);
+    //console.log(this.accounts);
   }
 
   getListCreated() {

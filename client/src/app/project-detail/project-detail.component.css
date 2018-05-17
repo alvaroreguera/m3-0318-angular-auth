@@ -1,0 +1,120 @@
+#myIframe {
+    height: 500px;
+    width: 500px;
+}
+
+
+.navbar {
+    background: #33373a !important;
+    color: #c8c8c8 !important;
+    font-family: 'Roboto', sans-serif;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+width: 130px;
+}
+
+.logo-img-card {
+    width: 30px !important; 
+}
+
+.out {
+    width: 80px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 10px;  
+}
+
+.cardTop {
+    vertical-align: top;
+  }
+  
+  .cardTop img {
+    background-size: cover;
+    height: 140px;
+  }
+  
+  .form-container {
+    display: none;
+  }
+  
+  .visible {
+    display: block !important;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  
+  
+  .card {
+    /* position: relative; */
+    display: -ms-flexbox;
+    display: inline-flex;
+  }
+  
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 110px;
+  }
+
+
+  
+  .cardTop img {
+    height: 170px;
+    object-fit: cover;
+  }
+  .card {
+    border: none;
+  }
+  .card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    padding: 1.25rem 0;
+    height: 30vh;
+    border-style: none;
+  }
+  .clear {
+    height: 250px;
+    width: 100%;
+  }
+
+  .col {
+    position: relative;
+    width: 50%;
+  }
+
+  .dere {
+    position: fixed;
+    width: 40%;
+    left: 55%;
+    top: 200px;
+  }
+
+  .webFund {
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    background-color: #f3f3f3;
+    top: 60px;
+    z-index: 100;
+    font-family: 'Roboto', sans-serif; 
+    color: black;
+    display: inline-block;
+    text-align: center;
+    font-size: 10px;
+  }
+
+
+

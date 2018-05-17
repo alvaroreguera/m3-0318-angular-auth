@@ -18,16 +18,32 @@ export class ProjectListComponent implements OnInit {
   //projectsFinanced$:Observable<any>;
   projectsFinanced:Array<any> = [];
   projectsCreated:Array<any> = [];
+  accounts:any;
+  projectsBalance:Array<any> = [];
+
 
   constructor(private projectService:ProjectService, public sessionService:SessionService) {
     // this.projects$ = projectService.getList();
     // this.projectsFinanced$ = projectService.getListFinanced();
     this.projectService.getList().subscribe( projects => this.projects = projects);
     this.projectService.getListFinanced().subscribe( projectsFinanced => this.projectsFinanced = projectsFinanced);
-  this.projectService.getListCreated().subscribe( projectsCreated => this.projectsCreated = projectsCreated);
+    this.projectService.getListCreated().subscribe( projectsCreated => this.projectsCreated = projectsCreated);
+    const testAccounts = [];
+    this.bindEvent(window, 'message', function (e) {
+      //console.log(e.data);
+      testAccounts.push(e.data);
+    });
+    this.projectService.balanceEvent.subscribe(p=> this.projects = p)
+    setTimeout(()=>{
+      this.accounts = testAccounts;
+      //console.log(this.accounts)
+    
+        this.projectService.getBalance(this.accounts);
+        this.projectService.balanceEvent.subscribe(p=> this.projects = p)
+      
+    }, 10000)
+    
   }
-
-  
 
 
   bindEvent(element, eventName, eventHandler) {
@@ -39,6 +55,8 @@ export class ProjectListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.projectService.balanceEvent.subscribe(p=> this.projects = p)
+      
   }
 
   
